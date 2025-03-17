@@ -141,12 +141,19 @@
 
         .screenshots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-md);
             margin-top: var(--spacing-lg);
         }
 
+        .screenshot-pair {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
         .screenshot {
+            flex: 1;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -158,8 +165,26 @@
             display: block;
         }
 
+        .screenshot-label {
+            margin-top: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
         .about {
             padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .about-with-screenshots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-content {
+            padding-right: var(--spacing-lg);
         }
 
         .support {
@@ -197,6 +222,11 @@
             margin-top: var(--spacing-sm);
         }
 
+        .mode-label {
+            font-weight: 500;
+            margin-bottom: var(--spacing-xs);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -206,10 +236,18 @@
                 font-size: 1.8rem;
             }
             
-            .features-grid,
             .screenshots-grid,
+            .about-with-screenshots,
             .support-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .screenshot-pair {
+                flex-direction: column;
+            }
+            
+            .about-content {
+                padding-right: 0;
             }
         }
     </style>
@@ -223,6 +261,7 @@
                 <a href="#about">About</a>
                 <a href="#support">Support</a>
                 <a href="#faq">FAQ</a>
+                <a href="privacy.html">Privacy</a>
             </nav>
         </header>
 
@@ -231,6 +270,18 @@
             <p class="tagline">Quiet your mind in just a tap. No subscriptions. No guided sessions. Just you and your breath in a beautifully designed space for mindfulness.</p>
             <a href="https://apps.apple.com/" class="button">Download on the App Store</a>
             <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge">
+            
+            <!-- Hero Screenshots -->
+            <div class="screenshot-pair" style="max-width: 800px; margin-top: var(--spacing-xl);">
+                <div class="screenshot">
+                    <div class="mode-label">Light Mode</div>
+                    <img src="screenshot-light-1.jpg" alt="minimal mind meditation timer - light mode">
+                </div>
+                <div class="screenshot">
+                    <div class="mode-label">Dark Mode</div>
+                    <img src="screenshot-dark-1.jpg" alt="minimal mind meditation timer - dark mode">
+                </div>
+            </div>
         </section>
     </div>
 
@@ -278,107 +329,24 @@
         <div class="container">
             <h2>Beautifully Designed Space for Mindfulness</h2>
             <div class="screenshots-grid">
-                <!-- Placeholder screenshot 1 - Meditation Timer -->
-                <div class="screenshot-placeholder">
-                    <div class="screenshot-placeholder-inner">
-                        <div class="screenshot-header">
-                            <div class="screenshot-time">21:13</div>
-                            <div class="screenshot-header-right">
-                                <div class="screenshot-signal"></div>
-                                <div class="screenshot-battery"></div>
-                            </div>
-                        </div>
-                        <div class="screenshot-content">
-                            <div class="screenshot-title">MEDITATION</div>
-                            <div class="screenshot-heading">unguided.</div>
-                            <div class="screenshot-description">Clear your mind with a session of quiet meditation. Focus on your breath and let go of any thoughts that arise.</div>
-                            
-                            <div class="screenshot-title" style="margin-top: 30px;">DURATION</div>
-                            <div class="screenshot-timer">
-                                <div class="timer-option">1</div>
-                                <div class="timer-option">5</div>
-                                <div class="timer-option active">10</div>
-                                <div class="timer-option">15</div>
-                                <div class="timer-option">20</div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Timer Settings Screenshots -->
+                <div class="screenshot">
+                    <div class="mode-label">Light Mode</div>
+                    <img src="screenshot-light-2.jpg" alt="Timer settings - light mode">
+                </div>
+                <div class="screenshot">
+                    <div class="mode-label">Dark Mode</div>
+                    <img src="screenshot-dark-2.jpg" alt="Timer settings - dark mode">
                 </div>
                 
-                <!-- Placeholder screenshot 2 - Interval Bells -->
-                <div class="screenshot-placeholder">
-                    <div class="screenshot-placeholder-inner">
-                        <div class="screenshot-header">
-                            <div class="screenshot-time">21:14</div>
-                            <div class="screenshot-header-right">
-                                <div class="screenshot-signal"></div>
-                                <div class="screenshot-battery"></div>
-                            </div>
-                        </div>
-                        <div class="screenshot-content">
-                            <div class="screenshot-title">INTERVAL BELLS</div>
-                            
-                            <div class="screenshot-interval">
-                                <div class="interval-option">None</div>
-                                <div class="interval-option active">Quarters</div>
-                                <div class="interval-option">Halfway</div>
-                            </div>
-                            
-                            <div class="screenshot-timeline">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-line"></div>
-                                <div class="timeline-dot orange"></div>
-                                <div class="timeline-line"></div>
-                                <div class="timeline-dot orange"></div>
-                                <div class="timeline-line"></div>
-                                <div class="timeline-dot orange"></div>
-                                <div class="timeline-line"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="timeline-labels">
-                                <div class="timeline-label">Start</div>
-                                <div class="timeline-label">2m 30s</div>
-                                <div class="timeline-label">5m</div>
-                                <div class="timeline-label">7m 30s</div>
-                                <div class="timeline-label">10m</div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Interval Bell Screenshots -->
+                <div class="screenshot">
+                    <div class="mode-label">Light Mode</div>
+                    <img src="screenshot-light-3.jpg" alt="Interval bell settings - light mode">
                 </div>
-                
-                <!-- Placeholder screenshot 3 - Ambient Sound -->
-                <div class="screenshot-placeholder">
-                    <div class="screenshot-placeholder-inner">
-                        <div class="screenshot-header">
-                            <div class="screenshot-time">21:15</div>
-                            <div class="screenshot-header-right">
-                                <div class="screenshot-signal"></div>
-                                <div class="screenshot-battery"></div>
-                            </div>
-                        </div>
-                        <div class="screenshot-content">
-                            <div class="screenshot-title">AMBIENT SOUND</div>
-                            
-                            <div class="screenshot-sounds">
-                                <div class="sound-option active">None</div>
-                                <div class="sound-option">Nature</div>
-                                <div class="sound-option">Rain</div>
-                                <div class="sound-option">Forest</div>
-                            </div>
-                            
-                            <div class="screenshot-title" style="margin-top: 50px;">BELL SOUND</div>
-                            
-                            <div class="screenshot-sounds">
-                                <div class="sound-option active">Bell 1</div>
-                                <div class="sound-option">Bell 2</div>
-                                <div class="sound-option">None</div>
-                            </div>
-                            
-                            <div style="margin-top: 50px;">
-                                <div class="button">minimal mind.</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="screenshot">
+                    <div class="mode-label">Dark Mode</div>
+                    <img src="screenshot-dark-3.jpg" alt="Interval bell settings - dark mode">
                 </div>
             </div>
         </div>
@@ -386,15 +354,31 @@
 
     <section class="about" id="about">
         <div class="container">
-            <h2>Designed With Purpose</h2>
-            <p>Created in collaboration with experienced meditation practitioners, minimal mind. focuses on what truly matters: helping you establish a consistent daily practice that builds over time into profound mental clarity and emotional resilience.</p>
-            <p>The clean interface eliminates decision fatigue and keeps you focused on what matters—your practice, not your screen.</p>
-            
-            <h3>For Everyone Who Values Simplicity</h3>
-            <p>Whether you're a beginner seeking a straightforward introduction to meditation or an experienced practitioner who appreciates elegance, minimal mind. provides the perfect sanctuary for your daily mindfulness ritual.</p>
-            
-            <h3>Real Results Through Consistency</h3>
-            <p>Users report improved focus, reduced stress, better sleep, and enhanced overall wellbeing through regular use. The app's intentional design promotes the habit-building that leads to lasting benefits.</p>
+            <div class="about-with-screenshots">
+                <div class="about-content">
+                    <h2>Designed With Purpose</h2>
+                    <p>Created in collaboration with experienced meditation practitioners, minimal mind. focuses on what truly matters: helping you establish a consistent daily practice that builds over time into profound mental clarity and emotional resilience.</p>
+                    <p>The clean interface eliminates decision fatigue and keeps you focused on what matters—your practice, not your screen.</p>
+                    
+                    <h3>For Everyone Who Values Simplicity</h3>
+                    <p>Whether you're a beginner seeking a straightforward introduction to meditation or an experienced practitioner who appreciates elegance, minimal mind. provides the perfect sanctuary for your daily mindfulness ritual.</p>
+                    
+                    <h3>Real Results Through Consistency</h3>
+                    <p>Users report improved focus, reduced stress, better sleep, and enhanced overall wellbeing through regular use. The app's intentional design promotes the habit-building that leads to lasting benefits.</p>
+                </div>
+                
+                <!-- About Section Screenshots -->
+                <div class="screenshot-pair" style="flex-direction: column;">
+                    <div class="screenshot">
+                        <div class="mode-label">Light Mode</div>
+                        <img src="screenshot-light-4.jpg" alt="Ambient sounds - light mode">
+                    </div>
+                    <div class="screenshot" style="margin-top: var(--spacing-md);">
+                        <div class="mode-label">Dark Mode</div>
+                        <img src="screenshot-dark-4.jpg" alt="Ambient sounds - dark mode">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -425,6 +409,18 @@
                     </ul>
                 </div>
             </div>
+            
+            <!-- Final Screenshots -->
+            <div class="screenshot-pair" style="max-width: 800px; margin: var(--spacing-xl) auto 0;">
+                <div class="screenshot">
+                    <div class="mode-label">Light Mode</div>
+                    <img src="screenshot-light-5.jpg" alt="Active meditation - light mode">
+                </div>
+                <div class="screenshot">
+                    <div class="mode-label">Dark Mode</div>
+                    <img src="screenshot-dark-5.jpg" alt="Active meditation - dark mode">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -448,7 +444,8 @@
         <div class="container">
             <p>&copy; 2023 minimal mind. All rights reserved.</p>
             <p>
-                <a href="#support">Support</a>
+                <a href="#support">Support</a> |
+                <a href="privacy.html">Privacy Policy</a>
             </p>
         </div>
     </footer>
